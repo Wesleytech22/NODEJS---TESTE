@@ -15,6 +15,12 @@ const livros = [
     }
 ]
 
+function buscaLivro(id){
+    return livros.findIndex(livros =>{
+        return livros.id === Number(id);
+    })
+}
+
 app.get("/", (req, res) => {
     res.status(200).send("Curso de Node.js");
 });
@@ -22,6 +28,10 @@ app.get("/", (req, res) => {
 app.get("/livros", (req, res) =>{
     res.status(200).json(livros);
 });
+
+app.get("/livros/:id", (req, res) =>{
+    res.status(200).json(livros);
+})
 
 app.post("/livros", (req , res) =>{
     livros.push(req.body);
