@@ -21,6 +21,10 @@ function buscaLivro(id){
     })
 }
 
+function deleteLivro(id){
+    
+}
+
 app.get("/", (req, res) => {
     res.status(200).send("Curso de Node.js");
 });
@@ -30,12 +34,29 @@ app.get("/livros", (req, res) =>{
 });
 
 app.get("/livros/:id", (req, res) =>{
-    res.status(200).json(livros);
+    const index = buscaLivro(req.params.id);
+    res.status(200).json(livros[index]);
 })
 
 app.post("/livros", (req , res) =>{
     livros.push(req.body);
     res.status(201).send("Livro cadastrado com sucesso!")
+})
+
+app.put("/livros/:id",(req, res) =>{
+    const index = buscaLivro(req.params.id);
+    livros[index].titulo = req.body.titulo;
+    res.status(200)
+    .send("Alteração realizada com sucesso!")
+    .json(livros);
+})
+
+app.delete("/livros/:id", (req, res) =>{
+    const index = buscaLivro(req.params.id);
+    livros.splice(index, 1);
+    res.status(200)
+    .send("Deleção realizada com sucesso!")
+    .json(livros)
 })
 
 export default app;
