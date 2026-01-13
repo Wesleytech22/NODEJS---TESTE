@@ -5,7 +5,7 @@ const app = express();
 app.use(express.json());
 
 app.get("/", (req, res) => {
-    res.status(200).send("Curso de Node.js");
+    res.status(200).send("Seja bem-vindo, neste servidor a API roda um CRUD de livraria.");
 });
 
 app.get("/livros", async (req, res) => {
