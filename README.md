@@ -21,5 +21,5 @@ API REST para gerenciamento de livros desenvolvida com Node.js, Express e MongoD
 
 ### 1. Clone o repositório
 ```bash
-git clone [url-do-seu-repositorio]
-cd nome-do-projeto
+git clone git@github.com:Wesleytech22/NODEJS---TESTE.git
+cd NODEJS---TESTE
