@@ -20,3 +20,5 @@ app.get("/livros", async (req, res) => {
 // Outras rotas (POST, PUT, DELETE) seguem o mesmo padrão usando await livro...
 
 export default app;
+
+//Desenvolvedor: Wesley Rodrigues
