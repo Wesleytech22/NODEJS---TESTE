@@ -34,6 +34,12 @@ const LivroSchema = new mongoose.Schema(
       min: [1000, 'Ano de publicação inválido'],
       max: [new Date().getFullYear(), 'Ano não pode ser no futuro'],
     },
+    desenvolvedor: {
+      type: String,
+      trim: true,
+      default: 'desenvolvedor não informado'
+
+    },
     isbn: {
       type: String,
       trim: true,
@@ -50,9 +56,8 @@ const LivroSchema = new mongoose.Schema(
 LivroSchema.index({ titulo: 'text', autor: 'text', editora: 'text' });
 
 // Middleware pré-save (opcional)
-LivroSchema.pre('save', function (next) {
+LivroSchema.pre('save', async function () {
   console.log(`📝 Salvando livro: ${this.titulo}`);
-  next();
 });
 
 // Método personalizado (opcional)
