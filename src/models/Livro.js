@@ -40,6 +40,11 @@ const LivroSchema = new mongoose.Schema(
       default: 'desenvolvedor não informado'
 
     },
+    capaurl:{
+      type: String,
+      trim: true,
+      default: '',
+    },
     isbn: {
       type: String,
       trim: true,
